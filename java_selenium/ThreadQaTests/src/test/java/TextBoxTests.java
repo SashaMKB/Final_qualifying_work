@@ -1,24 +1,44 @@
 import Pages.TextBoxPage;
-import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+import org.testng.annotations.AfterClass;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import utils.BaseTest;
-import utils.PropertyReader;
-
-import java.time.Duration;
+import utils.Helper;
 
 public class TextBoxTests extends BaseTest {
 
-    TextBoxPage page;
+    private TextBoxPage textBoxPage;
 
+    @BeforeClass
+    public void setUp() {
+        super.setUp();
+        textBoxPage = new TextBoxPage(driver);
+        textBoxPage.goToTextBoxPage();
+    }
 
-    @Test
-    public void fillParametersInTextBox() {
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(15));
-        driver.get(PropertyReader.getProperty("base_url"));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath("//h5[text()='Elements']")));
-        driver.findElement(By.xpath("//h5[text()='Elements']")).click();
-        sleep(10000);
+    @Test(dataProvider = "testData")
+    public void fillParametersInTextBox(String name, String email, String currentAddress, String permanentAddress) {
+        textBoxPage.fillFields(name, email, currentAddress, permanentAddress);
+        Assert.assertTrue(textBoxPage.confirmRecord(name, email, currentAddress, permanentAddress));
+    }
+
+    @AfterClass
+    public void tearDown() {
+        super.close();
+    }
+
+    @DataProvider(name = "testData")
+    public Object[][] generateTestData() {
+        Object[][] testData = new Object[50][4];
+        for (int i = 0; i < 50; i++) {
+            String name = Helper.generateRandomString(10);
+            String email = Helper.generateRandomEmail();
+            String currentAddress = Helper.generateRandomAddress();
+            String permanentAddress = Helper.generateRandomAddress();
+            testData[i] = new Object[]{name, email, currentAddress, permanentAddress};
+        }
+        return testData;
     }
 }

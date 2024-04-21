@@ -13,7 +13,6 @@ public class BaseTest {
     public void setUp() {
         System.setProperty("webdriver.chrome.driver", "src/test/resources/chromedriver.exe");
         driver = new ChromeDriver();
-
     }
 
     @AfterTest
@@ -22,7 +21,6 @@ public class BaseTest {
     }
 
     public void sleep(int milliseconds) {
-
         try {
             Thread.sleep(milliseconds);
         } catch (Exception e) {
