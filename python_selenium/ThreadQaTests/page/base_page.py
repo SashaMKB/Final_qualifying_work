@@ -7,7 +7,7 @@ class BasePage:
 
     def __init__(self, driver) -> None:
         self.driver: ChromiumDriver = driver
-        self.wait = WebDriverWait(self.driver, 10)
+        self.wait = WebDriverWait(self.driver, 5)
         self.base_url = "http://85.192.34.140:8081"
 
     def _find_element(self, by, locator):
