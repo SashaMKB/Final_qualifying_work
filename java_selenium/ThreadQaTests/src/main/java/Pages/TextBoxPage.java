@@ -65,8 +65,6 @@ public class TextBoxPage extends BasePage {
 
 
     public boolean confirmRecord(String expectedName, String expectedEmail, String expectedCurrentAddress, String expectedPermanentAddress) {
-//        System.out.println("Expected: " + "Name:" + expectedName + " " + "Email:" + expectedEmail + " " + "Current Address :" + "Permananet Address :" + expectedPermanentAddress + " " + expectedPermanentAddress);
-//        System.out.println("Received: " + nameOutput.getText() + " " + emailOutput.getText() + " " + currentAddressOutput.getText() + " " + permanentAddressOutput.getText());
         return nameOutput.getText().equals("Name:" + expectedName) &&
                 emailOutput.getText().equals("Email:" + expectedEmail) &&
                 currentAddressOutput.getText().equals("Current Address :" + expectedCurrentAddress) &&
