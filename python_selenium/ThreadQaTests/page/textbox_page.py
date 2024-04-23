@@ -13,7 +13,6 @@ class TextBoxPage(BasePage):
         self._find_element(By.XPATH, "//h5[text()='Elements']").click()
         self._find_element(By.XPATH, "//span[text()='Text Box']").click()
 
-
     def fill_fields(self, name, email, current_address, permanent_address):
         self._find_element(By.ID, "userName").send_keys(name)
         self._find_element(By.ID, "userEmail").send_keys(email)

@@ -31,8 +31,8 @@ public class TextBoxTests extends BaseTest {
 
     @DataProvider(name = "testData")
     public Object[][] generateTestData() {
-        Object[][] testData = new Object[10][4];
-        for (int i = 0; i < 10; i++) {
+        Object[][] testData = new Object[50][4];
+        for (int i = 0; i < 50; i++) {
             String name = Helper.generateRandomString(10);
             String email = Helper.generateRandomEmail();
             String currentAddress = Helper.generateRandomAddress();

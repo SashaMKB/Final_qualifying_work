@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "chance": "^1.1.11",
+    "faker": "^6.6.6",
+    "selenium-webdriver": "^4.19.0"
+  }
+}

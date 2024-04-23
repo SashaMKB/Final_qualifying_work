@@ -14,9 +14,9 @@ def browser():
     driver.quit()
 
 
-@pytest.fixture(scope="session")
-def navigate_to_textbox(browser):
-    page = TextBoxPage(browser)
-    page.go_to_text_box_page()
-    yield page
+# @pytest.fixture(scope="session")
+# def navigate_to_textbox(browser):
+#     page = TextBoxPage(browser)
+#     page.go_to_text_box_page()
+#     yield page
 
